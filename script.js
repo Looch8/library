@@ -11,48 +11,16 @@ function Book(title, author, numPages, hasRead) {
 	};
 }
 
-function addBookToLibrary(title, author, numPages, hasRead) {
+const book1 = new Book("test1", "info", 257, "Read");
+const book2 = new Book("test2", "info", 345, "Not Read");
+
+function addBookToLibrary(book) {
 	// Do stuff here...
 	// Get user input
 
 	// push book instance to myLibrary
-	myLibrary.push([title, author, numPages, hasRead]);
-	console.log(myLibrary);
+	myLibrary.push(book);
 }
-addBookToLibrary("harry potter", "JK ROWLING", 375, "Read");
-addBookToLibrary("thomas", "JK ROWLING", 375, "Read");
-
-// Prototypes
-Object.setPrototypeOf(addBookToLibrary.prototype, Book.prototype);
-
-console.log(addBookToLibrary(author));
-
-const harryPotter = new Book();
-
-// const harryPotter = new Book(
-// 	"Harry Potter",
-// 	"J.K. Rowling",
-// 	365,
-// 	"not read yet"
-// );
-// const hitchHikersGuide = new Book(
-// 	"The Hitch Hikers Guide to The Galaxy",
-// 	"Douglas Adams",
-// 	275,
-// 	"Read"
-// );
-
-// Book.prototype.sayHello = function () {
-// 	console.log("Hello");
-// };
-
-// harryPotter.sayHello();
-
-// harryPotter.info();
-// console.log(harryPotter);
-// console.log(harryPotter.info());
-
-// console.log(hitchHikersGuide.info());
-
-// console.log(Object.getPrototypeOf(harryPotter) === Book.prototype);
-// console.log(Object.getPrototypeOf(Book));
+addBookToLibrary(book1);
+addBookToLibrary(book2);
+console.log(myLibrary);
