@@ -1,0 +1,13 @@
+.book-form {
+	display: flex;
+	flex-direction: column;
+	outline: auto;
+	max-width: 50%;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+}
+
+.book {
+	width: 50%;
+}
