@@ -1,6 +1,7 @@
 // Array for storing Book objects
 const myLibrary = [];
 
+// Book Constructor prototype
 function Book(title, author, numPages, hasRead) {
 	this.title = title;
 	this.author = author;
@@ -11,11 +12,11 @@ function Book(title, author, numPages, hasRead) {
 	};
 }
 
+// Book instances
 const book1 = new Book("test1", "info", 257, "Read");
 const book2 = new Book("test2", "info", 345, "Not Read");
 
 function addBookToLibrary(book) {
-	// Do stuff here...
 	// Get user input
 
 	// push book instance to myLibrary
