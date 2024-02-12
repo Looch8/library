@@ -11,20 +11,23 @@ function Book(title, author, numPages, hasRead) {
 	};
 }
 
-function addBookToLibrary() {
+function addBookToLibrary(title, author, numPages, hasRead) {
 	// Do stuff here...
 	// Get user input
-	// const getUserInput = prompt("Please enter book name: ");
-	const getTitle = prompt("Please enter book name");
-	const getAuthor = prompt("Please enter book Author");
-	const numPages = prompt("Please enter number of pages");
-	const hasRead = prompt("Read?");
 
 	// push book instance to myLibrary
-	myLibrary.push(getTitle, getAuthor, numPages, hasRead);
+	myLibrary.push([title, author, numPages, hasRead]);
 	console.log(myLibrary);
 }
-addBookToLibrary();
+addBookToLibrary("harry potter", "JK ROWLING", 375, "Read");
+addBookToLibrary("thomas", "JK ROWLING", 375, "Read");
+
+// Prototypes
+Object.setPrototypeOf(addBookToLibrary.prototype, Book.prototype);
+
+console.log(addBookToLibrary(author));
+
+const harryPotter = new Book();
 
 // const harryPotter = new Book(
 // 	"Harry Potter",
