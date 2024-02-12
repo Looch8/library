@@ -15,9 +15,13 @@ function addBookToLibrary() {
 	// Do stuff here...
 	// Get user input
 	// const getUserInput = prompt("Please enter book name: ");
+	const getTitle = prompt("Please enter book name");
+	const getAuthor = prompt("Please enter book Author");
+	const numPages = prompt("Please enter number of pages");
+	const hasRead = prompt("Read?");
 
 	// push book instance to myLibrary
-	myLibrary.push(getUserInput);
+	myLibrary.push(getTitle, getAuthor, numPages, hasRead);
 	console.log(myLibrary);
 }
 addBookToLibrary();
