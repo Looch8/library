@@ -7,5 +7,23 @@
 		<script src="script.js"></script>
 		<link rel="stylesheet" href="style.css" />
 	</head>
-	<body></body>
+	<body>
+		<h3>Add a book</h3>
+		<form class="book-form">
+			<label for="title">Title :</label>
+			<input type="text" class="book title" name="title" />
+
+			<label for="author">Author: </label>
+			<input type="text" class="book author" name="author" />
+
+			<label for="pages">Pages: </label>
+			<input type="number" class="book pages" name="pages" />
+
+			<label for="read">Read:</label>
+			<input type="radio" class="book read-yes" name="read" />Yes
+			<input type="radio" class="book read-no" name="read" /> No
+
+			<button type="submit">Submit Book</button>
+		</form>
+	</body>
 </html>
