@@ -33,7 +33,7 @@ function displayBook() {
 		let bookContainer = document.getElementById("display-book-data");
 
 		// Create paragraph element
-		let paragraph = document.createElement("p");
+		let card = document.createElement("div");
 
 		// create content using data from object
 		let text = document.createTextNode(
@@ -41,10 +41,10 @@ function displayBook() {
 		);
 
 		// append text node to paragraph element
-		paragraph.appendChild(text);
+		card.appendChild(text);
 
 		// append paragraph element to the output container
-		bookContainer.appendChild(paragraph);
+		bookContainer.appendChild(card);
 	}
 }
 displayBook();

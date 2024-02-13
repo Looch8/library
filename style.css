@@ -11,3 +11,18 @@
 .book {
 	width: 50%;
 }
+
+div {
+	outline: auto;
+	padding: 20px;
+	margin: 10px;
+}
+
+#display-book-data {
+	margin-top: 50px;
+	max-width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
