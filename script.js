@@ -25,3 +25,26 @@ function addBookToLibrary(book) {
 addBookToLibrary(book1);
 addBookToLibrary(book2);
 console.log(myLibrary);
+
+// Function to loop through array and display to screen
+function displayBook() {
+	for (let book of myLibrary) {
+		// Create book container
+		let bookContainer = document.getElementById("display-book-data");
+
+		// Create paragraph element
+		let paragraph = document.createElement("p");
+
+		// create content using data from object
+		let text = document.createTextNode(
+			`${book.title} by ${book.author}, ${book.numPages} pages, ${book.hasRead}`
+		);
+
+		// append text node to paragraph element
+		paragraph.appendChild(text);
+
+		// append paragraph element to the output container
+		bookContainer.appendChild(paragraph);
+	}
+}
+displayBook();
