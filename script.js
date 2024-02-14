@@ -55,20 +55,6 @@ function displayBook() {
 }
 displayBook();
 
-// // submit form data to create book
-// document
-// 	.getElementById("book-form")
-// 	.addEventListener("submit", function (event) {
-// 		event.preventDefault();
-
-// 		let input = document.getElementsByClassName("book");
-// 		let output = input.value;
-
-// 		let printOutput = document.createElement("h1");
-// 		printOutput.innerHTML = output;
-// 		document.body.appendChild(printOutput);
-// 	});
-
 // Handle from submission
 function handleSubmit(e) {
 	e.preventDefault(); // Prevent default form submission
@@ -85,7 +71,11 @@ function handleSubmit(e) {
 	myLibrary.push(book);
 
 	console.log(myLibrary);
+	document.getElementById("display-book-data").innerHTML =
+		book.title + "," + book.author + "," + book.pages;
 }
 
 // event listener for form submission
 document.getElementById("book-form").addEventListener("submit", handleSubmit);
+
+// Display object data to DOM
