@@ -8,9 +8,7 @@
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
-		<button type="button" onclick="displayForm()" class="new-book button">
-			NEW BOOK
-		</button>
+		<button type="button" id="new-book">NEW BOOK</button>
 		<form id="book-form">
 			<h2>Add a book</h2>
 			<label for="title">Title :</label>
@@ -26,7 +24,7 @@
 			<input type="radio" class="book read-yes" name="read" />Yes
 			<input type="radio" class="book read-no" name="read" /> No
 
-			<button type="submit" class="submit button">Submit Book</button>
+			<button type="submit" id="submit button">Submit Book</button>
 		</form>
 
 		<!-- Display book data -->
