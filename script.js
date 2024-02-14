@@ -70,12 +70,13 @@ function handleSubmit(e) {
 	// push data into array
 	myLibrary.push(book);
 
-	console.log(myLibrary);
-	document.getElementById("display-book-data").innerHTML =
-		book.title + "," + book.author + "," + book.pages;
+	// Create new div with book content
+	const newDiv = document.createElement("div");
+	newDiv.textContent = `${book.title}, ${book.author}, ${book.pages}`;
+
+	// append new book data to library
+	document.getElementById("display-book-data").appendChild(newDiv);
 }
 
 // event listener for form submission
 document.getElementById("book-form").addEventListener("submit", handleSubmit);
-
-// Display object data to DOM
