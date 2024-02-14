@@ -1,12 +1,11 @@
 // display form button function
-// function displayForm() {
-// 	document.getElementById("book-form").style.display = "flex";
-// }
-
-document.getElementById("new-book").addEventListener("click", displayForm);
-function displayForm() {
-	document.getElementById("book-form").style.display = "flex";
+function showForm() {
+	document.getElementById("new-book").addEventListener("click", displayForm);
+	function displayForm() {
+		document.getElementById("book-form").style.display = "flex";
+	}
 }
+showForm();
 
 // Array for storing Book objects
 const myLibrary = [];
