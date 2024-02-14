@@ -8,13 +8,13 @@ function displayForm() {
 const myLibrary = [];
 
 // Book Constructor prototype
-function Book(title, author, numPages, hasRead) {
+function Book(title, author, pages, hasRead) {
 	this.title = title;
 	this.author = author;
-	this.numPages = numPages;
+	this.pages = pages;
 	this.hasRead = hasRead;
 	this.info = function () {
-		return `${title} by ${author}, ${numPages} pages, ${hasRead}`;
+		return `${title} by ${author}, ${pages} pages, ${hasRead}`;
 	};
 }
 
@@ -54,3 +54,38 @@ function displayBook() {
 	}
 }
 displayBook();
+
+// // submit form data to create book
+// document
+// 	.getElementById("book-form")
+// 	.addEventListener("submit", function (event) {
+// 		event.preventDefault();
+
+// 		let input = document.getElementsByClassName("book");
+// 		let output = input.value;
+
+// 		let printOutput = document.createElement("h1");
+// 		printOutput.innerHTML = output;
+// 		document.body.appendChild(printOutput);
+// 	});
+
+// Handle from submission
+function handleSubmit(e) {
+	e.preventDefault(); // Prevent default form submission
+
+	// Get form values
+	const title = document.getElementById("title").value;
+	const author = document.getElementById("author").value;
+	const pages = document.getElementById("pages").value;
+
+	// create new book instance
+	const book = new Book(title, author, pages);
+
+	// push data into array
+	myLibrary.push(book);
+
+	console.log(myLibrary);
+}
+
+// event listener for form submission
+document.getElementById("book-form").addEventListener("submit", handleSubmit);
