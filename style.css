@@ -1,5 +1,5 @@
-.book-form {
-	display: flex;
+#book-form {
+	display: none;
 	flex-direction: column;
 	outline: auto;
 	max-width: 50%;
