@@ -1,3 +1,7 @@
+body {
+	font-family: "roboto", Georgia, "Times New Roman", Times, serif;
+}
+
 #book-form {
 	display: none;
 	flex-direction: column;
@@ -25,4 +29,8 @@ div {
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
+}
+
+button {
+	margin: 10px;
 }
