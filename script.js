@@ -1,61 +1,52 @@
-// display form button function
-document.getElementById("new-book").addEventListener("click", displayForm);
-function displayForm() {
-	document.getElementById("book-form").style.display = "flex";
-}
-
 // Array for storing Book objects
 const myLibrary = [];
 
 // Book Constructor prototype
-function Book(title, author, pages, hasRead) {
+function Book(title, author, pages) {
 	this.title = title;
 	this.author = author;
 	this.pages = pages;
-	this.hasRead = hasRead;
-	this.info = function () {
-		return `${title} by ${author}, ${pages} pages, ${hasRead}`;
-	};
 }
 
-// Book instances
-const book1 = new Book("test1", "info", 257, "Read");
-const book2 = new Book("test2", "info", 345, "Not Read");
-
-function addBookToLibrary(book) {
-	// Get user input
-
-	// push book instance to myLibrary
-	myLibrary.push(book);
+// Function to delete book from both UI and myLibrary array
+function deleteBook(index) {
+	// Remove the book from the myLibrary array
+	myLibrary.splice(index, 1);
+	// Remove the book from the display
+	displayBooks();
 }
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-console.log(myLibrary);
 
-// Function to loop through array and display to screen
-function displayBook() {
-	for (let book of myLibrary) {
-		// Create book container
-		let bookContainer = document.getElementById("display-book-data");
+// Function to display books
+function displayBooks() {
+	// Clear existing content
+	document.getElementById("display-book-data").innerHTML = "";
 
-		// Create paragraph element
-		let card = document.createElement("div");
+	// Loop through myLibrary array and display each book
+	myLibrary.forEach((book, index) => {
+		// Create div element for each book
+		let bookDiv = document.createElement("div");
 
-		// create content using data from object
-		let text = document.createTextNode(
-			`${book.title} by ${book.author}, ${book.numPages} pages, ${book.hasRead}`
-		);
+		// Populate div with book information
+		bookDiv.textContent = `${book.title} by ${book.author}, ${book.pages} pages`;
 
-		// append text node to paragraph element
-		card.appendChild(text);
+		// Create delete button
+		let deleteButton = document.createElement("button");
+		deleteButton.textContent = "DELETE";
 
-		// append paragraph element to the output container
-		bookContainer.appendChild(card);
-	}
+		// Add event listener to delete button
+		deleteButton.addEventListener("click", () => {
+			deleteBook(index);
+		});
+
+		// Append delete button to bookDiv
+		bookDiv.appendChild(deleteButton);
+
+		// Append bookDiv to display area
+		document.getElementById("display-book-data").appendChild(bookDiv);
+	});
 }
-displayBook();
 
-// Handle from submission
+// Handle form submission
 function handleSubmit(e) {
 	e.preventDefault(); // Prevent default form submission
 
@@ -64,19 +55,28 @@ function handleSubmit(e) {
 	const author = document.getElementById("author").value;
 	const pages = document.getElementById("pages").value;
 
-	// create new book instance
+	// Create new book instance
 	const book = new Book(title, author, pages);
 
-	// push data into array
+	// Push data into array
 	myLibrary.push(book);
 
-	// Create new div with book content
-	const newDiv = document.createElement("div");
-	newDiv.textContent = `${book.title}, ${book.author}, ${book.pages}`;
+	// Display updated books
+	displayBooks();
 
-	// append new book data to library
-	document.getElementById("display-book-data").appendChild(newDiv);
+	// Reset form fields
+	document.getElementById("title").value = "";
+	document.getElementById("author").value = "";
+	document.getElementById("pages").value = "";
 }
 
-// event listener for form submission
+// Event listener for form submission
 document.getElementById("book-form").addEventListener("submit", handleSubmit);
+
+// Display initial books
+displayBooks();
+
+// display form button function
+document.getElementById("new-book").addEventListener("click", function () {
+	document.getElementById("book-form").style.display = "block";
+});
