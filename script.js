@@ -31,7 +31,7 @@ function displayBooks() {
 
 		// Create delete button
 		let deleteButton = document.createElement("button");
-		deleteButton.textContent = "DELETE";
+		deleteButton.textContent = " DELETE";
 
 		// Add event listener to delete button
 		deleteButton.addEventListener("click", () => {
