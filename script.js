@@ -2,48 +2,48 @@
 const myLibrary = [];
 
 // Book Constructor prototype
-function Book(title, author, pages) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-}
+class Book {
+	constructor(title, author, pages) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+	}
 
-// Function to delete book from both UI and myLibrary array
-function deleteBook(index) {
-	// Remove the book from the myLibrary array
-	myLibrary.splice(index, 1);
-	// Remove the book from the display
-	displayBooks();
-}
+	static deleteBook(index) {
+		// Remove the book from the myLibrary array
+		myLibrary.splice(index, 1);
+		// Remove the book from the display
+		displayBooks();
+	}
 
-// Function to display books
-function displayBooks() {
-	// Clear existing content
-	document.getElementById("display-book-data").innerHTML = "";
+	static displayBooks() {
+		// Clear existing content
+		document.getElementById("display-book-data").innerHTML = "";
 
-	// Loop through myLibrary array and display each book
-	myLibrary.forEach((book, index) => {
-		// Create div element for each book
-		let bookDiv = document.createElement("div");
+		// Loop through myLibrary array and display each book
+		myLibrary.forEach((book, index) => {
+			// Create div element for each book
+			let bookDiv = document.createElement("div");
 
-		// Populate div with book information
-		bookDiv.textContent = `${book.title} by ${book.author}, ${book.pages} pages`;
+			// Populate div with book information
+			bookDiv.textContent = `${book.title} by ${book.author}, ${book.pages} pages`;
 
-		// Create delete button
-		let deleteButton = document.createElement("button");
-		deleteButton.textContent = " DELETE";
+			// Create delete button
+			let deleteButton = document.createElement("button");
+			deleteButton.textContent = " DELETE";
 
-		// Add event listener to delete button
-		deleteButton.addEventListener("click", () => {
-			deleteBook(index);
+			// Add event listener to delete button
+			deleteButton.addEventListener("click", () => {
+				Book.deleteBook(index);
+			});
+
+			// Append delete button to bookDiv
+			bookDiv.appendChild(deleteButton);
+
+			// Append bookDiv to display area
+			document.getElementById("display-book-data").appendChild(bookDiv);
 		});
-
-		// Append delete button to bookDiv
-		bookDiv.appendChild(deleteButton);
-
-		// Append bookDiv to display area
-		document.getElementById("display-book-data").appendChild(bookDiv);
-	});
+	}
 }
 
 // Handle form submission
@@ -62,7 +62,7 @@ function handleSubmit(e) {
 	myLibrary.push(book);
 
 	// Display updated books
-	displayBooks();
+	Book.displayBooks();
 
 	// Reset form fields
 	document.getElementById("title").value = "";
@@ -74,7 +74,7 @@ function handleSubmit(e) {
 document.getElementById("book-form").addEventListener("submit", handleSubmit);
 
 // Display initial books
-displayBooks();
+Book.displayBooks();
 
 // display form button function
 document.getElementById("new-book").addEventListener("click", function () {
